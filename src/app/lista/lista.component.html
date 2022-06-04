@@ -1,0 +1,21 @@
+<div class="container">
+  <h2>Listado Clientes</h2>
+  <p>Listado de clientes:</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Mensaje</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let art of cliente">
+        <td>{{art[0]}}</td>
+        <td>{{art[1]}}</td>
+        <td>{{art[2]}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

@@ -1,0 +1,79 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<div class="container">
+  <div class="row">
+    <div class="col-2">
+    </div>
+    <div class="col col-md-8">
+      <h1>Formulario de contacto</h1>
+      <form [formGroup]="formReactive">
+        <div class="mb-3">
+          <label for="nombre">Nombre</label>
+          <input type="text" formControlName="nombre" class="form-control" [(ngModel)]="nombre" id="nombre"
+            name="nombre" id="firstname" placeholder="Nombre y apellido">
+        </div>
+
+        <!-- Mostrar el error cuando es invalido no cumple nuestros requisitos  y lo hemos pulsado (asi no saldra namaas recargar), dirty  o cambia el valor del input-->
+
+        <div *ngIf="getValue('nombre')?.invalid && (getValue('nombre')?.touched) || getValue('name')?.dirty">
+          <div *ngIf="getValue('nombre')?.hasError('required')">
+            <div class="alert alert-danger" role="alert">
+              Nombre obligatorio
+            </div>
+          </div>
+          <div *ngIf="getValue('nombre')?.hasError('minlength')">
+            <div class="alert alert-danger" role="alert">
+              No cumple el minimo
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="email">Email</label>
+          <input type="text" formControlName="email" class="form-control" [(ngModel)]="email" id="email"
+            placeholder="ejemplo@dominio.com">
+        </div>
+        <div *ngIf="getValue('email')?.invalid && (getValue('email')?.touched) || getValue('email')?.dirty">
+          <div *ngIf="getValue('email')?.hasError('required')">
+            <div class="alert alert-danger" role="alert">
+              Email obligatorio
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="mensaje">Mensaje</label>
+          <textarea class="form-control"  formControlName="mensaje"  id="mensaje" [(ngModel)]="mensaje" name="mensaje" rows="3"></textarea>
+        </div>
+        <div *ngIf="getValue('mensaje')?.invalid && (getValue('mensaje')?.touched) || getValue('mensaje')?.dirty">
+          <div *ngIf="getValue('mensaje')?.hasError('required')">
+            <div class="alert alert-danger" role="alert">
+              Mensaje obligatorio
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="resultado">2 + 3 = ?</label>
+          <input type="text" class="form-control"  formControlName="resultado"  [(ngModel)]="resultado" id="resultado" name="resultado"
+            placeholder="Respuesta">
+        </div>
+        <div *ngIf="getValue('resultado')?.invalid && (getValue('resultado')?.touched) || getValue('resultado')?.dirty">
+          <div *ngIf="getValue('resultado')?.hasError('required')">
+            <div class="alert alert-danger" role="alert">
+              Respuesta obligatorio
+            </div>
+          </div>
+        </div>
+        <div class="btnedit">
+          <button (click)="save()" class="btn btn-primary btncolor">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+  <br><br>
+  <app-lista [cliente]="arrayContacto"></app-lista>
