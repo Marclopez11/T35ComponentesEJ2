@@ -1,5 +1,10 @@
 # EJ2
 
+
+![image](https://user-images.githubusercontent.com/99056015/171992863-78a9ffc4-8181-4527-9d0a-f1d753df18d9.png)
+![image](https://user-images.githubusercontent.com/99056015/171992882-0aeee456-184d-48e1-aee1-ed7e1831dcb9.png)
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
 
 ## Development server
